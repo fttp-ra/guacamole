@@ -26,7 +26,7 @@ while x <= 10:
         f.write(screenshot) 
     
     img = Image.open('captcha%s.png' % x)
-    img = img.resize((200, 50), Image.ANTIALIAS)
+    img = img.resize((50, 200), Image.ANTIALIAS)
     img = cv2.imread('./captcha%s.png' % x, 0)
     kernel = np.ones((2),np.uint8)
     erosion = cv2.erode(img,kernel,iterations = 2)
