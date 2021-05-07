@@ -9,7 +9,7 @@ from selenium.webdriver.chrome.options import Options
 
 x = 1
 
-while x <= 10:
+while x <= 5:
 
     opt = webdriver.ChromeOptions()
 
@@ -27,11 +27,11 @@ while x <= 10:
     
     img = Image.open('captcha%s.png' % x)
     img = img.resize((50, 200), Image.ANTIALIAS)
-    img = cv2.imread('./captcha%s.png' % x, 0)
+    img = cv2.imread('./captcha%s.png' % x)
     kernel = np.ones((2),np.uint8)
     erosion = cv2.erode(img,kernel,iterations = 2)
     _,binarizadaInv = cv2.threshold(erosion,95,250,cv2.THRESH_BINARY_INV)
-    #cv2.imwrite('captcha%s.png' % x, binarizadaInv)
+    cv2.imwrite('captcha%s.png' % x, binarizadaInv)
 
     time.sleep(2)
 
