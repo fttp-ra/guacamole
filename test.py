@@ -15,7 +15,7 @@ while x <= 5:
 
     opt.add_argument("--headless")
 
-    browser = webdriver.Chrome(executable_path=r"/home/rhino/opt/chromedriver", options=opt)
+    browser = webdriver.Chrome(executable_path=r"C:/Users/luxci/Downloads/chromedriver_win32/chromedriver", options=opt)
 
     browser.get('http://contribuyente.seniat.gob.ve/BuscaRif/Captcha.jpg')
 
@@ -26,7 +26,7 @@ while x <= 5:
         f.write(screenshot) 
     
     img = Image.open('captcha%s.png' % x)
-    img = img.resize((50, 200), Image.ANTIALIAS)
+    img = img.resize((200, 50), Image.ANTIALIAS)
     img = cv2.imread('./captcha%s.png' % x)
     kernel = np.ones((2),np.uint8)
     erosion = cv2.erode(img,kernel,iterations = 2)

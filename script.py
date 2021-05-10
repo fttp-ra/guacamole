@@ -34,8 +34,8 @@ def predict(filepath):
     return capt#, sum(probs) / 5
 
 # Lets Predict By Model
-text = predict('./captcha1.png')
-print("Predicted Captcha =",predict('./captcha1.png'))
+text = predict('./captcha2.png')
+print("Predicted Captcha =",predict(text))
 
 #save text into captcha.json
 with open('captcha.json', 'w') as f:
