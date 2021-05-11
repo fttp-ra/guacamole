@@ -14,7 +14,7 @@ from keras.models import load_model
 #Init main values
 symbols = string.ascii_lowercase + "0123456789" # All symbols captcha can contain
 num_symbols = len(symbols)
-img_shape = (50, 200, 1)
+img_shape = (30, 120, 1)
 
 def create_model():
     img = layers.Input(shape=img_shape) # Get image as an input and process it through some Convs
@@ -45,21 +45,21 @@ def create_model():
 
 def preprocess_data():
     n_samples = len(os.listdir('./captcha_images_v1/'))
-    X = np.zeros((n_samples, 50, 200, 1)) #1070*50*200
+    X = np.zeros((n_samples, 30, 120, 1)) #1070*50*200
     y = np.zeros((6, n_samples, num_symbols)) #5*1070*36
 
     for i, pic in enumerate(os.listdir('./captcha_images_v1/')):
         # Read image as grayscale
         img = cv2.imread(os.path.join('./captcha_images_v1/', pic), cv2.IMREAD_GRAYSCALE)
         pic_target = pic[:-4]
-        if img.shape != (50,200):
-            img = cv2.resize(img, (200,50))
+        if img.shape != (30,120):
+            img = cv2.resize(img, (120,30))
         if len(pic_target) != 6:
             print("Lengh Error:", img)
         else:
             # Scale and reshape image
             img = img / 255.0
-            img = np.reshape(img, (50, 200, 1))
+            img = np.reshape(img, (30,120,1))
             # Define targets and code them using OneHotEncoding
             targs = np.zeros((6, num_symbols))
             for j, l in enumerate(pic_target):
