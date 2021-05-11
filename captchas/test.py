@@ -9,7 +9,7 @@ from selenium.webdriver.chrome.options import Options
 
 x = 1
 
-while x <= 5:
+while x <= 50:
 
     opt = webdriver.ChromeOptions()
 
