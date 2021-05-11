@@ -9,13 +9,13 @@ from selenium.webdriver.chrome.options import Options
 
 x = 1
 
-while x <= 10:
+while x <= 5:
 
     opt = webdriver.ChromeOptions()
 
     opt.add_argument("--headless")
 
-    browser = webdriver.Chrome(executable_path=r"C:/Users/luxci/Downloads/chromedriver_win32/chromedriver", options=opt)
+    browser = webdriver.Chrome(executable_path=r"/home/rhino/opt/chromedriver", options=opt)
 
     browser.get('http://contribuyente.seniat.gob.ve/BuscaRif/Captcha.jpg')
 
