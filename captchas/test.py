@@ -28,6 +28,7 @@ while x <= 50:
     img = Image.open('captcha%s.png' % x)
     img = img.resize((200, 50), Image.ANTIALIAS)
     img = cv2.imread('./captcha%s.png' % x)
+    time.sleep(2)
     kernel = np.ones((2),np.uint8)
     erosion = cv2.erode(img,kernel,iterations = 2)
     _,binarizadaInv = cv2.threshold(erosion,95,250,cv2.THRESH_BINARY_INV)
@@ -35,6 +36,6 @@ while x <= 50:
 
     time.sleep(2)
 
-    #browser.close()
+    browser.close()
 
     x+=1
